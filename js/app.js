@@ -16,8 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
   Game.holdbtn4 = document.getElementById('holdbtn4');
   Game.holdbtn5 = document.getElementById('holdbtn5');
   Game.holdbtn6 = document.getElementById('holdbtn6');
-
-  // Hold Buttons
+  // Hold Buttons initial condition
   Game.holdBool1 = false;
   Game.holdBool2 = false;
   Game.holdBool3 = false;
@@ -59,7 +58,6 @@ document.addEventListener('DOMContentLoaded', () => {
   })
 
   // SCORECARD
-  // Make arrays for the totals
   Game.ones = [];
   Game.twos = [];
   Game.threes = [];
@@ -67,7 +65,10 @@ document.addEventListener('DOMContentLoaded', () => {
   Game.fives = [];
   Game.sixes = [];
   Game.Numbers = [[Game.ones],[Game.twos],[Game.threes],[Game.fours],[Game.fives],[Game.sixes]];
+<<<<<<< HEAD
   // Game.total = [[Game.ones],[Game.twos],[Game.threes],[Game.fours],[Game.fives],[Game.sixes]];
+=======
+>>>>>>> scorecard
 
   //Sort and fill the array
   Game.ArrayPush = () => {
@@ -77,43 +78,36 @@ document.addEventListener('DOMContentLoaded', () => {
         case 1:
         if ((Game.RandNumArray[i] === 1) && (Game.holdBool1 === false)) {
           Game.ones.push(1);
-          console.log("ones", Game.ones);
-          console.log(Game.holdBool1);
         }
         break;
         case 2:
         if ((Game.RandNumArray[i] === 2) && (Game.holdBool2 === false)) {
           Game.RandNumArray[i] === 2
           Game.twos.push(2);
-          console.log("twos", Game.twos);
         }
         break;
         case 3:
         if ((Game.RandNumArray[i] === 3) && (Game.holdBool3 === false)) {
           Game.RandNumArray[i] === 3
           Game.threes.push(3);
-          console.log("threes", Game.threes);
         }
         break;
         case 4:
         if ((Game.RandNumArray[i] === 4) && (Game.holdBool4 === false)) {
           Game.RandNumArray[i] === 4
           Game.fours.push(4);
-          console.log("fours", Game.fours);
         }
         break;
         case 5:
         if ((Game.RandNumArray[i] === 5) && (Game.holdBool5 === false)) {
           Game.RandNumArray[i] === 5
           Game.fives.push(5);
-          console.log("fives", Game.fives);
         }
         break;
         case 6:
         if ((Game.RandNumArray[i] === 6) && (Game.holdBool6 === false)) {
           Game.RandNumArray[i] === 6
           Game.sixes.push(6);
-          console.log("sixes", Game.sixes);
         }
         break;
       }
@@ -122,57 +116,56 @@ document.addEventListener('DOMContentLoaded', () => {
 
   // Hold Function
   Game.ButtonArrayPressed = [];
+<<<<<<< HEAD
   console.log(Game.ButtonArrayPressed);
   Game.total = [[Game.ones.reduce(getSum)],[Game.twos.reduce(getSum)],[Game.threes.reduce(getSum)],[Game.fours.reduce(getSum)],[Game.fives.reduce(getSum)],[Game.sixes.reduce(getSum)]];
+=======
+
+  Game.Total = [];
+
+>>>>>>> scorecard
 
   Game.ButtonFunction = () => {
     for (var i = 1; i < 7; i++) {
       const holdBtn = document.getElementById(`holdbtn${i}`);
       holdBtn.addEventListener('click', (e) => {
-        console.log(Number(e.target.getAttribute("data-num")));
-        if (Game.ButtonArrayPressed.length < 6) { // if statement start
 
+        if (Game.ButtonArrayPressed.length < 6) { // if statement start
           switch (Number(e.target.getAttribute("data-num"))) { // switch start
             case 1:
             Game.holdBool1 = true;
-            console.log(Game.holdBool1);
             Game.ButtonArrayPressed.push('btn1');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("fillones").innerHTML))
             break;
             case 2:
             Game.holdBool2 = true;
-            console.log(Game.holdBool2);
             Game.ButtonArrayPressed.push('btn2');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("filltwos").innerHTML))
             break;
             case 3:
             Game.holdBool3 = true;
-            console.log(Game.holdBool3);
             Game.ButtonArrayPressed.push('btn3');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("fillthrees").innerHTML))
             break;
             case 4:
             Game.holdBool4 = true;
-            console.log(Game.holdBool4);
             Game.ButtonArrayPressed.push('btn4');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("fillfours").innerHTML))
             break;
             case 5:
             Game.holdBool5 = true;
-            console.log(Game.holdBool5);
             Game.ButtonArrayPressed.push('btn5');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("fillfives").innerHTML))
             break;
             case 6:
             Game.holdBool6 = true;
-            console.log(Game.holdBool6);
             Game.ButtonArrayPressed.push('btn6');
-            console.log(Game.ButtonArrayPressed);
+            Game.Total.push(Number(document.getElementById("fillsixes").innerHTML))
             break;
             default:
           } // switch statement end
-        } else if (Game.ButtonArrayPressed.length === 6) {
 
+<<<<<<< HEAD
           Game.TotalScore = () => {
             function getSum(total, num){
               return total + num;
@@ -180,45 +173,56 @@ document.addEventListener('DOMContentLoaded', () => {
           }
 
           document.getElementById("total").innerHTML = Game.total.reduce(getSum)
+=======
+        }
+        if (Game.ButtonArrayPressed.length === 6) {
+>>>>>>> scorecard
 
-        } // if statement end
+          const calcBtn = document.getElementById("calc");
+          calcBtn.addEventListener('click', (e) => {
 
-      }) // event listener end
-    } // for statemnet end
-  }; // button function end
+            Game.TotalScore = (total, num) => {
+              return total + num;
+            }
+            document.getElementById("total").innerHTML = Game.Total.reduce(Game.TotalScore)
+            Game.TotalScore()
+          }) // calc event listener close
+        } // else if close
+    }) // hold button event listener
+  } // for loop close
+} // Game.ButtonFunction close
 
 
-  Game.ButtonFunction();
+Game.ButtonFunction();
 
-  Game.RoundScore = () => {
-    function getSum(total, num){
-      return total + num;
-    }
-    if (Game.ones.length !== 0) {
-      // console.log(Game.ones.reduce(getSum));
-      document.getElementById("fillones").innerHTML = Game.ones.reduce(getSum)
-    }
-    if (Game.twos.length !== 0) {
-      // console.log(Game.twos.reduce(getSum));
-      document.getElementById("filltwos").innerHTML = Game.twos.reduce(getSum)
-    }
-    if (Game.threes.length !== 0) {
-      // console.log(Game.threes.reduce(getSum));
-      document.getElementById("fillthrees").innerHTML = Game.threes.reduce(getSum)
-    }
-    if (Game.fours.length !== 0) {
-      // console.log(Game.fours.reduce(getSum));
-      document.getElementById("fillfours").innerHTML = Game.fours.reduce(getSum)
-    }
-    if (Game.fives.length !== 0) {
-      // console.log(Game.fives.reduce(getSum));
-      document.getElementById("fillfives").innerHTML = Game.fives.reduce(getSum)
-    }
-    if (Game.sixes.length !== 0) {
-      // console.log(Game.sixes.reduce(getSum));
-      document.getElementById("fillsixes").innerHTML = Game.sixes.reduce(getSum)
-    }
+Game.RoundScore = () => {
+  function getSum(total, num){
+    return total + num;
   }
+  if (Game.ones.length !== 0) {
+    document.getElementById("fillones").innerHTML = Game.ones.reduce(getSum)
+  }
+  if (Game.twos.length !== 0) {
+    document.getElementById("filltwos").innerHTML = Game.twos.reduce(getSum)
+  }
+  if (Game.threes.length !== 0) {
+    document.getElementById("fillthrees").innerHTML = Game.threes.reduce(getSum)
+  }
+  if (Game.fours.length !== 0) {
+    document.getElementById("fillfours").innerHTML = Game.fours.reduce(getSum)
+  }
+  if (Game.fives.length !== 0) {
+    document.getElementById("fillfives").innerHTML = Game.fives.reduce(getSum)
+  }
+  if (Game.sixes.length !== 0) {
+    document.getElementById("fillsixes").innerHTML = Game.sixes.reduce(getSum)
+  }
+}
+
+
+// PLAYER TURN
+
+Game.player1 = true;
 
 
 }); // END

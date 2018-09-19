@@ -1,0 +1,33 @@
+
+.container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.dice {
+  border: 2px solid black;
+  text-align: center;
+  font-size: 8em;
+  display: row;
+  margin:auto;
+}
+
+.container-scorecards {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  border: 2px solid black;
+}
+
+.type {
+  border: 1px solid black;
+}
+
+.scorep1 {
+  border: 1px solid black;
+}
+
+.scorep2 {
+  border: 1px solid black;
+}

@@ -69,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
         Game.fives.splice(0, Game.fives.length);
         Game.sixes.splice(0, Game.sixes.length);
 
-        console.log("randnum", Game.RandomNumber());
         Game.dice[0].innerHTML = Game.RandNumArray[0];
         Game.dice[1].innerHTML = Game.RandNumArray[1];
         Game.dice[2].innerHTML = Game.RandNumArray[2];
@@ -92,48 +91,41 @@ document.addEventListener('DOMContentLoaded', () => {
           if ((Game.RandNumArray[i] === 1) && (Game.holdBool1 === false)) {
             Game.RandNumArray[i] === 1
             Game.ones.push(1);
-            console.log('ones', Game.ones);
           }
           break;
           case 2:
           if ((Game.RandNumArray[i] === 2) && (Game.holdBool2 === false)) {
             Game.RandNumArray[i] === 2
             Game.twos.push(2);
-            console.log('twos', Game.twos);
           }
           break;
           case 3:
           if ((Game.RandNumArray[i] === 3) && (Game.holdBool3 === false)) {
             Game.RandNumArray[i] === 3
             Game.threes.push(3);
-            console.log('threes', Game.threes);
           }
           break;
           case 4:
           if ((Game.RandNumArray[i] === 4) && (Game.holdBool4 === false)) {
             Game.RandNumArray[i] === 4
             Game.fours.push(4);
-            console.log('fours', Game.fours);
           }
           break;
           case 5:
           if ((Game.RandNumArray[i] === 5) && (Game.holdBool5 === false)) {
             Game.RandNumArray[i] === 5
             Game.fives.push(5);
-            console.log('fives', Game.fives);
           }
           break;
           case 6:
           if ((Game.RandNumArray[i] === 6) && (Game.holdBool6 === false)) {
             Game.RandNumArray[i] === 6
             Game.sixes.push(6);
-            console.log('sixes', Game.sixes);
           }
           break;
         } // SWITCH END
       } // FOR LOOP END
     } // ARRAY PUSH END
-    console.log(Game.ArrayPush);
 
 
     // Hold Function

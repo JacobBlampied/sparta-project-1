@@ -69,6 +69,7 @@ document.addEventListener('DOMContentLoaded', () => {
         Game.fives.splice(0, Game.fives.length);
         Game.sixes.splice(0, Game.sixes.length);
 
+        console.log("randnum", Game.RandomNumber());
         Game.dice[0].innerHTML = Game.RandNumArray[0];
         Game.dice[1].innerHTML = Game.RandNumArray[1];
         Game.dice[2].innerHTML = Game.RandNumArray[2];
@@ -132,6 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
         } // SWITCH END
       } // FOR LOOP END
     } // ARRAY PUSH END
+    console.log(Game.ArrayPush);
 
 
     // Hold Function
@@ -185,6 +187,13 @@ document.addEventListener('DOMContentLoaded', () => {
               } // TOTAL SCORE END
               Game.filltotal.innerHTML = Game.Total.reduce(Game.TotalScore)
               Game.TotalScore()
+              // WIN CONDITION
+
+              if (Game.filltotal.innerHTML > 50) {
+                alert("You Win!")
+              } else {
+                alert("You Lose!")
+              }
             }) // EVENT LISTENER END
           } // IF END
         }) // EVENT LISTENER END (TOP)
@@ -228,12 +237,6 @@ document.addEventListener('DOMContentLoaded', () => {
 } // DICE END
  Game.Dice()
 
- // WIN CONDITION
 
- // if (Game.filltotal.innerHTML > 25) {
- //   alert("You Win!")
- // } else {
- //   alert("You Lose!")
- // }
 
 }); // DOMContentLoaded END

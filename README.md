@@ -10,6 +10,8 @@ This game is a variation on Yahtzee where you use a random number generator as a
 
 ## How To Download
 Clone down the repository to your console from the following link: https://github.com/JacobBlampied/sparta-project-1
+Or to view the game on your browser use the GitHub Pages link:
+https://jacobblampied.github.io/sparta-project-1/
 
 ## Challenges
 * Getting the scorecard to display and hold the number totals. The following code fixed the problem:
